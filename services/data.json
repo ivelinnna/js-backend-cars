@@ -1,10 +1,4 @@
 {
-  "asdf1234": {
-    "name": "Subaru Legacy 2.0i 4x4",
-    "description": "202 800 km. Newly imported. Manual transmission. Petrol engine.",
-    "imageUrl": "subaru-legacy-iv.jpg",
-    "price": 3300
-  },
   "6414666f-cc3a": {
     "name": "BMW 1 Series M140i",
     "description": " The great factory spec includes professional navigation, heated seats, rear parking sensors, Harmon Kardon sound, cruise control, sports automatic transmission, auto led headlights, auto wipers, climate control, DAB, tinted windows plus more. Great example with subtle modifications and the remainder of the BMW warranty. 2 keys.",
@@ -15,6 +9,6 @@
     "name": "SUBARU LEGACY 2.0I 4X4",
     "description": "202 800 km. Newly imported. Manual transmission. Petrol engine.",
     "imageUrl": "subaru-legacy-iv.jpg",
-    "price": 3300
+    "price": 3099
   }
 }

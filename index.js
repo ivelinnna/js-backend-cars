@@ -5,6 +5,8 @@ const carsService = require('./services/cars');
 
 const { about } = require('./controllers/about');
 const create = require('./controllers/create');
+const edit = require('./controllers/edit');
+const deleteCar = require('./controllers/delete');
 const { details } = require('./controllers/details');
 const { home } = require('./controllers/home');
 const { notFound } = require('./controllers/notFound');
@@ -27,6 +29,14 @@ app.get('/details/:id', details);
 app.route('/create')
     .get(create.get)
     .post(create.post);
+
+app.route('/delete/:id')
+    .get(deleteCar.get)
+    .post(deleteCar.post);
+
+app.route('/edit/:id')
+    .get(edit.get)
+    .post(edit.post);
 
 app.all('*', notFound);
 
