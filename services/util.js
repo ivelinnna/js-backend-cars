@@ -6,7 +6,8 @@ function accessoryViewModel(accessory) {
         name: accessory.name,
         description: accessory.description,
         imageUrl: accessory.imageUrl,
-        price: accessory.price
+        price: accessory.price,
+        owner: accessory.owner
     };
 }
 
@@ -17,7 +18,8 @@ function carViewModel(car) {
         description: car.description,
         imageUrl: car.imageUrl,
         price: car.price,
-        accessories: car.accessories
+        accessories: car.accessories,
+        owner: car.owner
     };
 
     if(model.accessories.length > 0 && model.accessories[0].name) {
@@ -35,9 +37,20 @@ async function comparePassword(password, hashPassword) {
     return bcrypt.compare(password, hashPassword);
 }
 
+function isLoggedIn() {
+    return function(req, res, next) {
+        if(req.session.user) {
+            next();
+        } else {
+            res.redirect('/login');
+        }
+    };
+}
+
 module.exports = {
     accessoryViewModel,
     carViewModel, 
     hashPassword,
-    comparePassword
+    comparePassword,
+    isLoggedIn
 }

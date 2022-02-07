@@ -21,6 +21,7 @@ const { details } = require('./controllers/details');
 const { home } = require('./controllers/home');
 
 const { notFound } = require('./controllers/notFound');
+const { isLoggedIn } = require('./services/util');
 
 start();
 
@@ -51,20 +52,20 @@ async function start() {
     app.get('/details/:id', details);
 
     app.route('/create')
-        .get(create.get)
-        .post(create.post);
+        .get(isLoggedIn(), create.get)
+        .post(isLoggedIn(), create.post);
 
     app.route('/delete/:id')
-        .get(deleteCar.get)
-        .post(deleteCar.post);
+        .get(isLoggedIn(), deleteCar.get)
+        .post(isLoggedIn(), deleteCar.post);
 
     app.route('/edit/:id')
-        .get(edit.get)
-        .post(edit.post);
+        .get(isLoggedIn(), edit.get)
+        .post(isLoggedIn(), edit.post);
 
     app.route('/accessory')
-        .get(accessory.get)
-        .post(accessory.post);
+        .get(isLoggedIn(), accessory.get)
+        .post(isLoggedIn(), accessory.post);
 
     app.route('/attach/:id')
         .get(attach.get)
@@ -78,7 +79,7 @@ async function start() {
         .get(loginGet)
         .post(loginPost);
 
-    app.get('/logout', logout);
+    app.get('/logout',isLoggedIn(), logout);
 
     app.all('*', notFound);
 
